@@ -33,8 +33,8 @@ dico_MIB['HPE_5140_48G_PoE+_4SFP+_EI_Sw_JL824A']='299'
 dico_MIB['HPE_5500-24G-EI']='24'
 dico_MIB['HPE_A5500-48G_EI']='25'
 dico_MIB['HPE_5510_24G_4SFP+_HI']='215'
-dico_MIB['HPE 5510_24G_SFP_4SFP+_HI_1-slot_Switch_JH149A']='219'
-dico_MIB['HPE 5510_48G_4SFP+_HI_1-slot_Switch_JH146A']='216'
+dico_MIB['HPE_5510_24G_SFP_4SFP+_HI_1-slot_Switch_JH149A']='219'
+dico_MIB['HPE_5510_48G_4SFP+_HI_1-slot_Switch_JH146A']='216'
 dico_MIB['HPE_5520_24G']='?'
 dico_MIB['HPE_5520_48G']='??'
 
@@ -47,13 +47,13 @@ do
 num_MIB=${dico_MIB[$switch]}
 switch2=$(echo "$switch" | sed -r 's/[_]+/ /g') #Enlève les _ des modèles de commutateurs
 
-if [ -e "/home/adm1/lolotest_$num_MIB.def" ] #Verifie si le fichier MIB existe, si il n'existe pas il l'installe
-	then
-	#Si le fichier existe, Demande à l'utilisateur si il souhaite le remplacer
+if [ -f "/var/nedi/sysobj/1.3.6.1.4.1.25506.11.1.$num_MIB.def" ]; #Verifie si le fichier MIB existe, si il n'existe pas il l'installe
+then
+#Si le fichier existe, Demande à l'utilisateur si il souhaite le remplacer
 	if whiptail --yesno "Le fichier pour $switch2 existe,\nSouhaitez vous le remplacer ?" 10 80;
-		then
-		#Création d'un fichier MIB
-		echo "# Definition for 1.3.6.1.4.1.25506.11.1.$num_MIB created by Defed 2.1 on 31.Oct 2024 (admin)
+	then
+	#Création d'un fichier MIB
+	echo "# Definition for 1.3.6.1.4.1.25506.11.1.$num_MIB created by Defed 2.1 on 31.Oct 2024 (admin)
  
 # Main
 SNMPv	2HC
@@ -119,11 +119,11 @@ CPUutl	1.3.6.1.4.1.25506.2.6.1.1.1.1.6.82	%
 Temp			
 MemCPU			
 Custom			" > /var/nedi/sysobj/1.3.6.1.4.1.25506.11.1.$num_MIB.def
-		fi
-	else
-	echo "Le fichier pour $switch2 n'existe pas, installation..."
-	#Création d'un fichier MIB
-	echo "# Definition for 1.3.6.1.4.1.25506.11.1.$num_MIB created by Defed 2.1 on 31.Oct 2024 (admin)
+	fi
+else
+echo "Le fichier pour $switch2 n'existe pas, installation..."
+#Création d'un fichier MIB
+echo "# Definition for 1.3.6.1.4.1.25506.11.1.$num_MIB created by Defed 2.1 on 31.Oct 2024 (admin)
  
 # Main
 SNMPv	2HC
