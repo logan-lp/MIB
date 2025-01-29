@@ -17,7 +17,7 @@ Selectionnez en vous déplaçant avec les fleches haut et bas, puis cochez la ca
 "HPE_5510_24G_4SFP+_HI" "" 0 \
 "HPE_5510_24G_SFP_4SFP+_HI_1-slot_Switch_JH149A" "" 0 \
 "HPE_5510_48G_4SFP+_HI_1-slot_Switch_JH146A" "" 0 \
-"HPE_5520_24G" "En cours d'ajout..." 0 \
+"HPE_5520_24G" "" 0 \
 "HPE_5520_48G" "En cours d'ajout..." 0 3>&1 1>&2 2>&3) #renvoie les choix de l'utilisateur sous forme de chaine de caracteres
 
 LST_MIB=$(echo "$LST_MIB" | sed 's/\"//g') #enlève les gillemets de la chaine de caractères
