@@ -36,7 +36,7 @@ dico_MIB['HPE_5510_24G_4SFP+_HI']='215'
 dico_MIB['HPE_5510_24G_SFP_4SFP+_HI_1-slot_Switch_JH149A']='219'
 dico_MIB['HPE_5510_48G_4SFP+_HI_1-slot_Switch_JH146A']='216'
 dico_MIB['HPE_5520_24G']='308'
-dico_MIB['HPE_5520_48G']='?'
+dico_MIB['HPE_5520_48G']='309'
 
 #Pour supprimer un dictionnaire
 #unset dico_MIB['HPE_5130-24G']='188'
